@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://eeqio75gto15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co0d0"]
+
+[node name="Ground" type="StaticBody2D"]
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_co0d0")
+
+[node name="Sprite" type="Sprite2D" parent="."]

@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var movement_speed = 300
+@export var game_speed = 300
 var is_stopped = false
 
 
@@ -12,7 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !is_stopped:
-		position.x -= delta * movement_speed
+		position.x -= delta * game_speed
 
 func start(pos):
 	position = pos
@@ -21,7 +21,7 @@ func start(pos):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	position.x += DisplayServer.window_get_size().x + 400 #$Sprite.get_rect().size.x
 	randomize()
-	position.y = randf_range(500, 900)
+	position.y = randf_range(500, 800)
 
 
 func stop_game():

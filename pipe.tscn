@@ -30,23 +30,23 @@ shape = SubResource("RectangleShape2D_17vuo")
 
 [node name="Sprite2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0.0133171, -260)
+position = Vector2(0, -260)
 rotation = 3.14159
 scale = Vector2(-0.5, 0.5)
 texture = ExtResource("2_teu3q")
 
 [node name="HitboxTop2" type="CollisionShape2D" parent="."]
-position = Vector2(0.0265884, -142)
+position = Vector2(0, -142)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_efowb")
 
 [node name="HitboxMain2" type="CollisionShape2D" parent="."]
-position = Vector2(0.0266228, -270)
+position = Vector2(0, -270)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_17vuo")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -82.6667)
+position = Vector2(0, -82.5)
 scale = Vector2(3.2, 0.8)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
