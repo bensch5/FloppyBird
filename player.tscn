@@ -32,6 +32,7 @@ height = 102.0
 [node name="Player" type="RigidBody2D"]
 mass = 2.0
 gravity_scale = 2.5
+contact_monitor = true
 lock_rotation = true
 script = ExtResource("1_g8uuw")
 

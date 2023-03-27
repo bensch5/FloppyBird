@@ -14,6 +14,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !freeze:
+		sprite_rotation(delta)
+
+
+func sprite_rotation(delta):
 	
 	if Input.is_action_just_pressed("jump"):
 		linear_velocity.y = 0
