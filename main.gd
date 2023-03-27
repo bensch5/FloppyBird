@@ -9,7 +9,7 @@ var player
 func _ready():
 	player = player_scene.instantiate()
 	player.freeze = true
-	# player.game_over.connect(_on_game_over.bind(player))
+	player.game_over.connect(_on_game_over)
 	player.start($StartPosition.position)
 	add_child(player)
 
@@ -25,12 +25,13 @@ func new_game():
 	
 	for i in range(4):
 		var pipe = pipe_scene.instantiate()
+		player.game_over.connect(pipe.stop_game)
 		randomize()
-		var x_offset = i*500 + DisplayServer.window_get_size().x
+		var x_offset = i*500 + DisplayServer.window_get_size().x + 400
 		var position = Vector2(x_offset, randf_range(500, 900))
 		pipe.start(position)
 		add_child(pipe)
 
 
 func _on_game_over():
-	print("test")
+	pass

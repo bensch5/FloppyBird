@@ -30,8 +30,10 @@ radius = 36.0
 height = 102.0
 
 [node name="Player" type="RigidBody2D"]
+z_index = 1
 mass = 2.0
 gravity_scale = 2.5
+max_contacts_reported = 1
 contact_monitor = true
 lock_rotation = true
 script = ExtResource("1_g8uuw")

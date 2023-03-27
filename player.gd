@@ -5,6 +5,7 @@ signal game_over
 @export var jump_height = 1600
 var rotat = PI/2
 var is_jumping = false
+var ctr = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +16,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !freeze:
+		$Sprite.position.y = 0
 		sprite_rotation(delta)
+	else:
+		ctr += 5
+		$Sprite.position.y += sin(delta * ctr)/12
 
 
 func sprite_rotation(delta):
@@ -42,5 +47,5 @@ func start(pos):
 
 
 func _on_body_entered(_body):
-	print("collision")
+	$Sprite.stop()
 	game_over.emit()
