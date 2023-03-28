@@ -1,24 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyn8ppc3bmurf"]
+[gd_scene load_steps=7 format=3 uid="uid://cgsa48fyabgrl"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_g8uuw"]
-[ext_resource type="Texture2D" uid="uid://bgj35bljck42j" path="res://art/FloppyBird1.png" id="3_c0dfd"]
-[ext_resource type="Texture2D" uid="uid://ck1e2uxhvski" path="res://art/FloppyBird2.png" id="4_4arvx"]
-[ext_resource type="Texture2D" uid="uid://brpilkf6j4ah8" path="res://art/FloppyBird3.png" id="5_beu4f"]
+[ext_resource type="Texture2D" uid="uid://bgj35bljck42j" path="res://art/Bird1.png" id="2_4d63h"]
+[ext_resource type="Texture2D" uid="uid://ck1e2uxhvski" path="res://art/Bird2.png" id="3_x4k4s"]
+[ext_resource type="Texture2D" uid="uid://brpilkf6j4ah8" path="res://art/Bird3.png" id="4_l5bwn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_74g1e"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_c0dfd")
+"texture": ExtResource("2_4d63h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_4arvx")
+"texture": ExtResource("3_x4k4s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_beu4f")
+"texture": ExtResource("4_l5bwn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_4arvx")
+"texture": ExtResource("3_x4k4s")
 }],
 "loop": true,
 "name": &"default",

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://1a0th4nup6l"]
+[gd_scene load_steps=5 format=3 uid="uid://c2smffxkwrui1"]
 
 [ext_resource type="Script" path="res://pipe.gd" id="1_183d4"]
-[ext_resource type="Texture2D" uid="uid://cjvt0p1785bcv" path="res://art/Pipe3.png" id="2_teu3q"]
+[ext_resource type="Texture2D" uid="uid://cjvt0p1785bcv" path="res://art/Pipe.png" id="2_2b43k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efowb"]
 size = Vector2(64, 19.9999)
@@ -18,7 +18,7 @@ script = ExtResource("1_183d4")
 texture_filter = 1
 position = Vector2(0, 92)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_teu3q")
+texture = ExtResource("2_2b43k")
 
 [node name="HitboxTop" type="CollisionShape2D" parent="."]
 position = Vector2(0, -26)
@@ -33,7 +33,7 @@ texture_filter = 1
 position = Vector2(0, -260)
 rotation = 3.14159
 scale = Vector2(-0.5, 0.5)
-texture = ExtResource("2_teu3q")
+texture = ExtResource("2_2b43k")
 
 [node name="HitboxTop2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -142)

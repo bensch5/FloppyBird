@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgj35bljck42j"
-path="res://.godot/imported/FloppyBird1.png-895c6f56f9582a0ec0164d10f556fd00.ctex"
+uid="uid://ck1e2uxhvski"
+path="res://.godot/imported/Bird2.png-29fe3d5bade26da300821c8d15c23067.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/FloppyBird1.png"
-dest_files=["res://.godot/imported/FloppyBird1.png-895c6f56f9582a0ec0164d10f556fd00.ctex"]
+source_file="res://art/Bird2.png"
+dest_files=["res://.godot/imported/Bird2.png-29fe3d5bade26da300821c8d15c23067.ctex"]
 
 [params]
 
