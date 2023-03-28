@@ -25,7 +25,18 @@ func _process(delta):
 		new_game()
 	
 	if !is_stopped:
-		get_node("Boundary/GroundSprite").position.x -= delta * game_speed
+		# Move ground to the left every frame to create the illusion of horizontal player movement.
+		var move = delta * game_speed
+		get_node("Boundary/GroundSprite").position.x -= move
+		$VisibleOnScreenNotifier2D.position.x -= move
+
+
+# Create a loop for the ground by moving the sprite to the right whenever the notifier exits the screen.
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	var move = 1632
+	get_node("Boundary/GroundSprite").position.x += move
+	$VisibleOnScreenNotifier2D.position.x += move
+
 
 func new_game():
 	game_started = true
@@ -44,3 +55,5 @@ func new_game():
 func _on_game_over():
 	is_stopped = true
 	# show game over screen
+
+
