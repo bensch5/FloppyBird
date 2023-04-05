@@ -55,5 +55,3 @@ func new_game():
 func _on_game_over():
 	is_stopped = true
 	# show game over screen
-
-

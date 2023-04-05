@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwicp8ed108nh"]
+[gd_scene load_steps=3 format=3 uid="uid://bwicp8ed108nh"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_mosub"]
+[ext_resource type="Texture2D" uid="uid://8rsmmoguc5mx" path="res://art/GameOver.png" id="2_plhm2"]
 
 [node name="HUD" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_mosub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1000, 450)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_plhm2")

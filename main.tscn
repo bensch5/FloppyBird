@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://blitqhevukcdw"]
+[gd_scene load_steps=8 format=3 uid="uid://blitqhevukcdw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ukot8"]
-[ext_resource type="PackedScene" uid="uid://cyn8ppc3bmurf" path="res://player.tscn" id="2_abti5"]
-[ext_resource type="PackedScene" uid="uid://1a0th4nup6l" path="res://pipe.tscn" id="3_dok6y"]
+[ext_resource type="PackedScene" uid="uid://cgsa48fyabgrl" path="res://player.tscn" id="2_abti5"]
+[ext_resource type="PackedScene" uid="uid://c2smffxkwrui1" path="res://pipe.tscn" id="3_dok6y"]
 [ext_resource type="Texture2D" uid="uid://cx3osqhgcjfkq" path="res://art/Sky.png" id="4_cldch"]
 [ext_resource type="Texture2D" uid="uid://bnlds026oi0u2" path="res://art/Ground.png" id="5_k2iws"]
+[ext_resource type="PackedScene" uid="uid://bwicp8ed108nh" path="res://hud.tscn" id="6_cjche"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4ta2"]
 size = Vector2(1600.5, 138)
@@ -42,5 +43,7 @@ texture = ExtResource("5_k2iws")
 [node name="Sky" type="CollisionShape2D" parent="Boundary"]
 position = Vector2(800, -69)
 shape = SubResource("RectangleShape2D_h4ta2")
+
+[node name="HUD" parent="." instance=ExtResource("6_cjche")]
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
