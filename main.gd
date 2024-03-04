@@ -41,6 +41,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func new_game():
 	game_started = true
 	player.freeze = false
+	$HUD/TapToPlay.hide()
 	
 	for i in range(4):
 		pipe = pipe_scene.instantiate()
