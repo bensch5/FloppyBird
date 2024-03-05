@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2smffxkwrui1"]
+[gd_scene load_steps=6 format=3 uid="uid://c2smffxkwrui1"]
 
 [ext_resource type="Script" path="res://pipe.gd" id="1_183d4"]
 [ext_resource type="Texture2D" uid="uid://cjvt0p1785bcv" path="res://art/Pipe.png" id="2_2b43k"]
@@ -8,6 +8,9 @@ size = Vector2(64, 19.9999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17vuo"]
 size = Vector2(55.9468, 236)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mfj3n"]
+a = Vector2(0, -168.667)
 
 [node name="Pipe" type="StaticBody2D"]
 position = Vector2(0, 248)
@@ -49,4 +52,10 @@ shape = SubResource("RectangleShape2D_17vuo")
 position = Vector2(0, -82.5)
 scale = Vector2(3.2, 0.8)
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="ScoreCollision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_mfj3n")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

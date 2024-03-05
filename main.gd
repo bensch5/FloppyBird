@@ -23,7 +23,7 @@ func _ready():
 func _process(delta):
 	if !game_started and Input.is_action_pressed("jump"): # Game starts with jump input.
 		new_game()
-	
+
 	if !is_stopped:
 		# Move ground to the left every frame to create the illusion of horizontal player movement.
 		var move = delta * game_speed
@@ -42,6 +42,7 @@ func new_game():
 	game_started = true
 	player.freeze = false
 	$HUD/TapToPlay.hide()
+	$HUD/ScoreCounter.show()
 	
 	for i in range(4):
 		pipe = pipe_scene.instantiate()
