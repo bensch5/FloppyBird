@@ -21,16 +21,18 @@ func _process(delta):
 		$Sprite.position.y += sin(delta * ctr)/12
 	else:
 		$Sprite.position.y = 0
-		sprite_rotation(delta)
+		if Input.is_action_just_pressed("jump"):
+			handle_jump()
+		rotate_sprite(delta)
 
 
-func sprite_rotation(delta):
-	
-	if Input.is_action_just_pressed("jump"):
-		linear_velocity.y = 0
-		apply_impulse(Vector2(0, -jump_height))
-		is_jumping = true
-	
+func handle_jump():
+	linear_velocity.y = 0
+	apply_impulse(Vector2(0, -jump_height))
+	is_jumping = true
+
+
+func rotate_sprite(delta):
 	if is_jumping and rotat > PI/4:
 		rotat = max(PI/4, rotat - rotat * 10 * delta)
 	else:
