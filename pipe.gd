@@ -27,5 +27,3 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func stop_game():
 	is_stopped = true
 	set_collision_layer_value(1, false)
-
-

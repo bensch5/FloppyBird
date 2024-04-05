@@ -27,9 +27,10 @@ func _ready():
 func _process(delta):
 	match state:
 		GameState.STARTING_SCREEN:
+			$HUD/TapToPlay.show()
+			move_ground(delta)
 			if Input.is_action_pressed("jump"): # Game starts with jump input.
 				new_game()
-			move_ground(delta)
 		GameState.IN_GAME:
 			move_ground(delta)
 		GameState.GAME_OVER:
@@ -56,6 +57,7 @@ func new_game():
 	$HUD/TapToPlay.hide()
 	$HUD/ScoreCounter.show()
 	
+	# spawn in pipes
 	for i in range(4):
 		pipe = pipe_scene.instantiate()
 		player.game_over.connect(pipe.stop_game)
