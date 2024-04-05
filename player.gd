@@ -5,7 +5,7 @@ signal game_over
 @export var jump_height = 1600
 var rotat = PI/2
 var is_jumping = false
-var ctr = 0
+var ctr = 0 # used for player movement during starting screen
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,12 +15,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if !freeze:
-		$Sprite.position.y = 0
-		sprite_rotation(delta)
-	else:
+	# if player is in starting screen
+	if freeze:
 		ctr += 5
 		$Sprite.position.y += sin(delta * ctr)/12
+	else:
+		$Sprite.position.y = 0
+		sprite_rotation(delta)
 
 
 func sprite_rotation(delta):
