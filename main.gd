@@ -5,13 +5,22 @@ extends Node2D
 
 @export var game_speed = 300
 
+enum GameState {
+	STARTING_SCREEN,
+	IN_GAME,
+	OVER_OVER,
+}
+# FIXME: remove in favour of GameState
 var game_started = false
 var is_stopped = false
+
 var player
 var pipe
+var state: GameState
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	state = GameState.STARTING_SCREEN
 	player = player_scene.instantiate()
 	player.freeze = true
 	player.game_over.connect(_on_game_over)
