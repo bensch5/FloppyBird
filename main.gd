@@ -1,16 +1,15 @@
 extends Node2D
 
-@export var player_scene: PackedScene
-@export var pipe_scene: PackedScene
-
-@export var game_speed = 300
-
 enum GameState {
 	STARTING_SCREEN,
 	IN_GAME,
 	GAME_OVER,
 }
 
+const Player = preload("res://player.gd")
+@export var player_scene: PackedScene
+@export var pipe_scene: PackedScene
+@export var game_speed = 300
 var player
 var pipe
 var state: GameState
@@ -19,7 +18,6 @@ var state: GameState
 func _ready():
 	state = GameState.STARTING_SCREEN
 	player = player_scene.instantiate()
-	player.freeze = true
 	player.game_over.connect(_on_game_over)
 	player.start($StartPosition.position)
 	add_child(player)
@@ -31,13 +29,18 @@ func _process(delta):
 		GameState.STARTING_SCREEN:
 			if Input.is_action_pressed("jump"): # Game starts with jump input.
 				new_game()
+			move_ground(delta)
 		GameState.IN_GAME:
-			# Move ground to the left every frame to create the illusion of horizontal player movement.
-			var move = delta * game_speed
-			get_node("Boundary/GroundSprite").position.x -= move
-			$VisibleOnScreenNotifier2D.position.x -= move
+			move_ground(delta)
 		GameState.GAME_OVER:
+			# TODO: check for input to restart
 			pass
+
+# Move ground to the left every frame to create the illusion of horizontal player movement.
+func move_ground(delta):
+	var move = delta * game_speed
+	get_node("Boundary/GroundSprite").position.x -= move
+	$VisibleOnScreenNotifier2D.position.x -= move
 
 
 # Create a loop for the ground by moving the sprite to the right whenever the notifier exits the screen.
@@ -49,7 +52,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func new_game():
 	state = GameState.IN_GAME
-	player.freeze = false
+	player.state = GameState.IN_GAME
 	$HUD/TapToPlay.hide()
 	$HUD/ScoreCounter.show()
 	
@@ -65,4 +68,7 @@ func new_game():
 
 func _on_game_over():
 	state = GameState.GAME_OVER
-	# show game over screen
+	$HUD/ScoreCounter.hide()
+	player.state = GameState.GAME_OVER
+	# TODO:
+	# -show game over screen/menu

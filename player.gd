@@ -2,10 +2,12 @@ extends RigidBody2D
 
 signal game_over
 
+const Main = preload("res://main.gd")
 @export var jump_height = 1600
+var state: Main.GameState
 var rotat = PI/2
-var is_jumping = false
 var ctr = 0 # used for player movement during starting screen
+var is_jumping = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,15 +17,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# if player is in starting screen
-	if freeze:
-		ctr += 5
-		$Sprite.position.y += sin(delta * ctr)/12
-	else:
-		$Sprite.position.y = 0
-		if Input.is_action_just_pressed("jump"):
-			handle_jump()
-		rotate_sprite(delta)
+	match state:
+		Main.GameState.STARTING_SCREEN:
+			freeze = true
+			# move up and down according to sine curve
+			ctr += 5
+			$Sprite.position.y += sin(delta * ctr)/12
+		Main.GameState.IN_GAME:
+			freeze = false
+			$Sprite.position.y = 0
+			if Input.is_action_just_pressed("jump"):
+				handle_jump()
+			rotate_sprite(delta)
+		Main.GameState.GAME_OVER:
+			rotate_sprite(delta)
 
 
 func handle_jump():
