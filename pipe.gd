@@ -29,5 +29,3 @@ func stop_game():
 	set_collision_layer_value(1, false)
 
 
-func _on_area_2d_body_exited(_body):
-	SignalBus.player_passed_pipe.emit()

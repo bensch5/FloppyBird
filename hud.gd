@@ -10,9 +10,7 @@ func _ready():
 		func ():
 			current_score += 1	
 			$ScoreCounter.text = str(current_score)
-			print($ScoreCounter)
 			print("current score: ", current_score)
-			print("ScoreCounter.text: ", $ScoreCounter.text)
 	)
 
 
