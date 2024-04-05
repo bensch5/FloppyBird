@@ -1,6 +1,6 @@
 # FloppyBird
 
-FloppyBird is a recreation of flappy bird in [godot](https://godotengine.org/) for learning puroposes.
+FloppyBird is a recreation of flappy bird in [godot](https://godotengine.org/) for learning purposes.
 
 ## Some Screenshots
 
