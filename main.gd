@@ -8,11 +8,8 @@ extends Node2D
 enum GameState {
 	STARTING_SCREEN,
 	IN_GAME,
-	OVER_OVER,
+	GAME_OVER,
 }
-# FIXME: remove in favour of GameState
-var game_started = false
-var is_stopped = false
 
 var player
 var pipe
@@ -30,14 +27,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if !game_started and Input.is_action_pressed("jump"): # Game starts with jump input.
-		new_game()
-
-	if !is_stopped:
-		# Move ground to the left every frame to create the illusion of horizontal player movement.
-		var move = delta * game_speed
-		get_node("Boundary/GroundSprite").position.x -= move
-		$VisibleOnScreenNotifier2D.position.x -= move
+	match state:
+		GameState.STARTING_SCREEN:
+			if Input.is_action_pressed("jump"): # Game starts with jump input.
+				new_game()
+		GameState.IN_GAME:
+			# Move ground to the left every frame to create the illusion of horizontal player movement.
+			var move = delta * game_speed
+			get_node("Boundary/GroundSprite").position.x -= move
+			$VisibleOnScreenNotifier2D.position.x -= move
+		GameState.GAME_OVER:
+			pass
 
 
 # Create a loop for the ground by moving the sprite to the right whenever the notifier exits the screen.
@@ -48,7 +48,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func new_game():
-	game_started = true
+	state = GameState.IN_GAME
 	player.freeze = false
 	$HUD/TapToPlay.hide()
 	$HUD/ScoreCounter.show()
@@ -64,5 +64,5 @@ func new_game():
 
 
 func _on_game_over():
-	is_stopped = true
+	state = GameState.GAME_OVER
 	# show game over screen
