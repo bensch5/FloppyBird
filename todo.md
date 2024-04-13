@@ -1,10 +1,10 @@
 # TODO
 
 - [x] "Tap to play" beim Start
-- [ ] Game Over
-	- [ ] "GAME OVER" anzeigen wenn man verliert
-	- [ ] Game Over Menu
-		- [ ] Reset Button
+- [x] Game Over
+	- [x] "GAME OVER" anzeigen wenn man verliert
+	- [x] Game Over Menu
+		- [x] Reset Button
 	- [x] Controls aus machen
 	- [x] Drehen stoppen wenn nah am boden
 - [x] Score
@@ -15,6 +15,10 @@
 		- https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html
 - [x] add README
 
+- [ ] highscores
+	- [x] add current score to highscores
+	- [ ] show highscores when game is game over
+	- [ ] manchmal, wenn man eine pipe am rand trifft, werden zwei Einträge gemacht
+
 - nice to have
 	- [ ] dynamische screensize
-	- [ ] highscores
