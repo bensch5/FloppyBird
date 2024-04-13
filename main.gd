@@ -22,6 +22,11 @@ func _ready():
 	player.start($StartPosition.position)
 	add_child(player)
 
+	$HUD/GameOverMenu/RestartButton.pressed.connect(
+		func():
+			if state == GameState.GAME_OVER:
+				restart_game()
+	)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -66,6 +71,10 @@ func new_game():
 		var pos = Vector2(x_offset, randf_range(500, 800))
 		pipe.start(pos)
 		add_child(pipe)
+
+
+func restart_game():
+	get_tree().reload_current_scene()
 
 
 func _on_game_over():
