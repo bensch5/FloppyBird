@@ -61,6 +61,7 @@ horizontal_alignment = 1
 justification_flags = 162
 
 [node name="GameOverMenu" type="Node2D" parent="."]
+visible = false
 
 [node name="GameOver" type="Label" parent="GameOverMenu"]
 texture_filter = 1

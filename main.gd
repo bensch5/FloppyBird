@@ -28,7 +28,7 @@ func _ready():
 				restart_game()
 	)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	match state:
 		GameState.STARTING_SCREEN:
@@ -81,5 +81,4 @@ func _on_game_over():
 	state = GameState.GAME_OVER
 	$HUD/ScoreCounter.hide()
 	player.state = GameState.GAME_OVER
-	# TODO:
-	# -show game over screen/menu
+	$HUD.show_game_over_menu()
