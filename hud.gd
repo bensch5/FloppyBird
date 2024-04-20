@@ -20,7 +20,14 @@ func _process(_delta):
 
 
 func show_game_over_menu():
-	var _new_highscores = insert_new_score(current_score)
+	var new_highscores = insert_new_score(current_score)
+	var score_table = "[center][table=2]"
+	for key in new_highscores:
+		var val = new_highscores[key]
+		score_table = score_table + "[cell]{0}   [/cell]".format([key])
+		score_table = score_table + "[cell]{0}[/cell]".format([val])
+	score_table += "[/table][/center]"
+	$GameOverMenu/Highscores.text = score_table
 	$GameOverMenu/Score.text = "Score: %d" % current_score
 	$GameOverMenu.show()
 	
@@ -32,10 +39,13 @@ func insert_new_score(score):
 	var highscores := load_highscores()
 	highscores[Time.get_datetime_string_from_system()] = score
 	save_highscores(highscores)
+	return highscores
 
 
 func load_highscores() -> Dictionary:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if not file:
+		return {}
 	var json := JSON.new()
 	json.parse(file.get_line())
 	file.close()
@@ -45,4 +55,3 @@ func load_highscores() -> Dictionary:
 func save_highscores(highscores: Dictionary):
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(highscores))
-

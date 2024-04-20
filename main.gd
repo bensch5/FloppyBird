@@ -78,7 +78,8 @@ func restart_game():
 
 
 func _on_game_over():
-	state = GameState.GAME_OVER
-	$HUD/ScoreCounter.hide()
-	player.state = GameState.GAME_OVER
-	$HUD.show_game_over_menu()
+	if state != GameState.GAME_OVER:
+		state = GameState.GAME_OVER
+		$HUD/ScoreCounter.hide()
+		player.state = GameState.GAME_OVER
+		$HUD.show_game_over_menu()
