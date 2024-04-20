@@ -37,6 +37,7 @@ func _process(delta):
 			if Input.is_action_pressed("jump"): # Game starts with jump input.
 				new_game()
 		GameState.IN_GAME:
+			game_speed += 0.2
 			move_ground(delta)
 		GameState.GAME_OVER:
 			# TODO: check for input to restart

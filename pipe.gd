@@ -12,6 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !is_stopped:
+		game_speed += 0.2
 		position.x -= delta * game_speed
 
 func start(pos):
