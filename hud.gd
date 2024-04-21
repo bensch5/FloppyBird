@@ -54,8 +54,8 @@ func create_time_string(time: String):
 	var day = to_two_digits.call(str(dict.day))
 	var month = to_two_digits.call(str(dict.month))
 	var year = str(dict.year).substr(2,4)
-	var hour = to_two_digits.call(str(dict.month))
-	var minute = to_two_digits.call(str(dict.month))
+	var hour = to_two_digits.call(str(dict.hour))
+	var minute = to_two_digits.call(str(dict.minute))
 	return "{0}/{1}/{2} {3}:{4}".format([day, month, year, hour, minute])
 
 
