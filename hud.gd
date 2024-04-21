@@ -21,6 +21,7 @@ func _process(_delta):
 
 
 func show_game_over_menu():
+	$ShadeRect.show()
 	var new_highscores = insert_new_score(current_score)
 	$GameOverMenu/Highscores.text = create_highscore_table(new_highscores)
 	$GameOverMenu/Score.text = "Score: %d" % current_score
@@ -33,7 +34,7 @@ func create_highscore_table(highscores):
 	for key in highscores:
 		pairs.append([key, highscores[key]])
 	pairs.sort_custom(func (a, b): return a[1] > b[1])
-	for pair in pairs.slice(0, 5):
+	for pair in pairs.slice(0, 10):
 		var time = Time.get_datetime_dict_from_datetime_string(pair[0], false)
 		var time_string = " {0}/{1}/{2}".format([time.day, time.month, str(time.year).substr(2, 4)])
 		var score_string = pair[1]
