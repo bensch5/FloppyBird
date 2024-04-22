@@ -15,10 +15,10 @@
 		- https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html
 - [x] add README
 
-- [ ] highscores
+- [x] highscores
 	- [x] add current score to highscores
-	- [ ] show highscores when game is game over
-	- [ ] manchmal, wenn man eine pipe am rand trifft, werden zwei Einträge gemacht
+	- [x] show highscores when game is game over
+	- [x] manchmal, wenn man eine pipe am rand trifft, werden zwei Einträge gemacht
 
 - nice to have
 	- [ ] dynamische screensize
