@@ -1,8 +1,9 @@
 # FloppyBird
 
-FloppyBird is a recreation of flappy bird in [godot](https://godotengine.org/) for learning purposes.
+FloppyBird is a recreation of popular mobile game Flappy Bird in the [Godot](https://godotengine.org/) game engine. Made for learning purposes.
 
 ## Some Screenshots
 
-![screenshot of the game](./screenshots/screenshot_2024-04-05-175355.png)
-<!-- FIXME: add more screenshots -->
+![starting screen](./screenshots/start_screen.png)
+![mid game](./screenshots/in_game.png)
+![game over screen](./screenshots/game_over.png)
