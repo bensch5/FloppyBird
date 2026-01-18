@@ -2,8 +2,8 @@ extends RigidBody2D
 
 signal game_over
 
-const Main = preload("res://main.gd")
-@export var jump_height = 1600
+const Main = preload("uid://d0li5hfihgih3")
+@export var jump_height: int = 1600
 var state: Main.GameState
 var rotat = PI/2
 var ctr = 0 # used for player movement during starting screen

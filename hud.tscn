@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bwicp8ed108nh"]
 
-[ext_resource type="Script" path="res://hud.gd" id="1_mosub"]
-[ext_resource type="Shader" path="res://font.gdshader" id="3_ioxur"]
+[ext_resource type="Script" uid="uid://c2fxdbuvgnngg" path="res://hud.gd" id="1_mosub"]
+[ext_resource type="Shader" uid="uid://dkjjrefavehvx" path="res://font.gdshader" id="3_ioxur"]
 [ext_resource type="FontFile" uid="uid://c1d86dycx5saa" path="res://fonts/RetroSans.ttf" id="4_8o2v0"]
 [ext_resource type="Texture2D" uid="uid://b7dhaue1f1vco" path="res://art/GameOver.png" id="4_bb011"]
 [ext_resource type="Theme" uid="uid://ddjqxubqtx25o" path="res://themes/PixelTheme.tres" id="4_ji2xd"]
@@ -74,6 +74,7 @@ color = Color(0, 0, 0, 0.501961)
 
 [node name="GameOverMenu" type="GridContainer" parent="."]
 visible = false
+custom_minimum_size = Vector2(181, 123)
 anchors_preset = -1
 anchor_right = 1.001
 anchor_bottom = 1.0
@@ -86,10 +87,25 @@ grow_vertical = 2
 scale = Vector2(6, 6)
 size_flags_horizontal = 5
 
+[node name="Heading" type="Node2D" parent="GameOverMenu"]
+position = Vector2(90, 10.833333)
+
+[node name="GameOver" type="TextureRect" parent="GameOverMenu/Heading"]
+texture_filter = 1
+offset_left = -90.00001
+offset_top = -10.833334
+offset_right = 90.99999
+offset_bottom = 14.166666
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_bb011")
+
 [node name="GameOver" type="TextureRect" parent="GameOverMenu"]
+modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 2
-size_flags_horizontal = 5
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("4_bb011")
 
 [node name="Score" type="Label" parent="GameOverMenu"]

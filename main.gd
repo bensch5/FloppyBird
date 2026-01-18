@@ -6,7 +6,7 @@ enum GameState {
 	GAME_OVER,
 }
 
-const Player = preload("res://player.gd")
+const Player = preload("uid://dwj8suudo4gky")
 @export var player_scene: PackedScene
 @export var pipe_scene: PackedScene
 @export var game_speed = 300
