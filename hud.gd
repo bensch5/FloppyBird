@@ -36,7 +36,7 @@ func create_highscore_table(highscores):
 		pairs.append([key, highscores[key]])
 	pairs.sort_custom(func (a, b): return a[1] > b[1])
 	for pair in pairs.slice(0, 10):
-		var time_string = create_time_string(pair[0]) 
+		var time_string = create_time_string(pair[0])
 		var score_string = pair[1]
 		# turn current score green
 		if pair[0] == current_time:
@@ -75,7 +75,12 @@ func load_highscores() -> Dictionary:
 	var json := JSON.new()
 	json.parse(file.get_line())
 	file.close()
-	return json.get_data() as Dictionary
+	
+	var result = json.get_data()
+	for key in result:
+		result[key] = int(result[key])
+	
+	return result as Dictionary
 
 
 func save_highscores(highscores: Dictionary):
