@@ -43,6 +43,12 @@ func _process(delta):
 			# TODO: check for input to restart
 			pass
 
+
+func _input(event):
+	if state == GameState.GAME_OVER && event.is_action_pressed("jump"):
+		restart_game()
+
+
 # Move ground to the left every frame to create the illusion of horizontal player movement.
 func move_ground(delta):
 	var move = delta * game_speed
